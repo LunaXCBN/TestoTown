@@ -1,6 +1,5 @@
 from sourceserver.sourceserver import SourceServer
 import json
-from time import sleep
 
 s0 = SourceServer("65.21.189.168:27015")
 
@@ -21,7 +20,10 @@ def get_rules():
     else:
         pass
 
+    print(s0.info)
+
     return rules, info
+
 
 def save_rules():
     rules, info = get_rules()
@@ -29,3 +31,5 @@ def save_rules():
         json.dump(rules, f, indent=4)
     with open('info.json', 'w') as f:
         json.dump(info, f, indent=4)
+
+get_rules()
